@@ -1,0 +1,58 @@
+# DataGuard AI — Cursor AI Agent Configuration & Engineering Rules
+# Open Agent Hackathon 2026
+
+[project_context]
+name = "DataGuard AI"
+role = "Autonomous Data Reliability Engineer"
+description = "Autonomous data quality agent enforcing deterministic rule evaluation, Markovian constant-memory root cause investigation, and cryptographically verified safe remediation."
+version = "1.0.0"
+
+[core_principles]
+1. safety_first = "Source datasets are strictly read-only. Never modify, truncate, or overwrite source tables or files."
+2. human_in_the_loop = "All data transformations require explicit human authorization before execution."
+3. deterministic_foundation = "Quality evaluations must be deterministic and mathematically verifiable (scoring 0-100 based on weighted rule failures)."
+4. constant_memory_reasoning = "LLM investigation must follow the Meterless Markovian chunked reasoning protocol (O(1) context growth) using [STATE_CHECKPOINT] and [TASK_COMPLETE] delimiters."
+5. cryptographic_auditability = "Every remediation run must produce a cryptographically verifiable SHA-256 before/after hash and immutable markdown/JSON audit record."
+
+[agent_lifecycle_state_machine]
+states = [
+    "INGEST: Connect to data source (CSV or Zetaris Spark proxy) without mutating source.",
+    "PROFILE: Compute distributions, distinct counts, null ratios, and inferred data types.",
+    "DETECT: Execute 8 foundational deterministic rules (Nulls, Duplicates, Schema mismatch, Bounds, Formats, Categories, Tukey IQR Outliers, Relational contradictions).",
+    "TRIAGE: Calculate composite 0-100 quality score and rank findings by severity.",
+    "INVESTIGATE: Execute bounded chunked Markovian investigation and synthesize empirical root causes via NVIDIA Nemotron.",
+    "RECOMMEND: Propose minimal, non-destructive, parameter-driven remediation actions.",
+    "VALIDATE: Dry-run proposed transformations in memory to compute projected score delta.",
+    "REVIEW: Pause pipeline and render explicit human approval interface.",
+    "APPLY: Apply only approved transformations to an immutable working copy.",
+    "AUDIT: Re-evaluate quality rules, verify score improvement, compute SHA-256 seal, and emit audit certificate."
+]
+
+[sponsor_integrations]
+zetaris = {
+    "role": "Distributed data federation & Spark query proxy",
+    "endpoint": "http://localhost:3000/api/proxy/query/sql/start",
+    "auth": "POST /api/auth/login with idToken extraction",
+    "headers": ["Authorization: Bearer <idToken>", "X-Org-ID: 1", "X-Request-ID: <UUID-v4>"]
+}
+meterless_nightshift = {
+    "role": "Local OpenAI-compatible model runtime",
+    "endpoint": "http://127.0.0.1:8088/v1",
+    "protocol": "OpenAI ChatCompletions standard"
+}
+meterless_markovian = {
+    "role": "Bounded chunked reasoning runtime",
+    "markers": ["[STATE_CHECKPOINT]", "[TASK_COMPLETE]"],
+    "invariant": "Bounded carryover state (default 256 tokens) achieving O(1) context scaling"
+}
+nvidia_nemotron = {
+    "role": "Deep empirical root-cause synthesis",
+    "model": "nvidia/llama-3.1-nemotron-70b-instruct",
+    "format": "Structured empirical hypotheses with confidence metrics"
+}
+
+[code_conventions]
+language = "python"
+min_python_version = "3.10"
+typing = "strict"
+testing = "pytest with >= 90% benchmark anomaly recall"

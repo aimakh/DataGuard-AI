@@ -1,0 +1,103 @@
+{
+  "total_rows": 500,
+  "injected_anomalies": {
+    "NULL_VALUES_INCOME": {
+      "column": "annual_income",
+      "indices": [
+        12,
+        45,
+        78,
+        110,
+        215,
+        150,
+        290,
+        340
+      ],
+      "count": 8
+    },
+    "SCHEMA_MISMATCH_SPEND": {
+      "column": "monthly_spend",
+      "indices": [
+        22,
+        134,
+        255,
+        388
+      ],
+      "count": 4
+    },
+    "BOUNDS_VIOLATION": {
+      "columns": [
+        "age",
+        "churn_risk_score"
+      ],
+      "indices": [
+        50,
+        160,
+        420,
+        77,
+        305
+      ],
+      "count": 5
+    },
+    "FORMAT_INCONSISTENCY": {
+      "columns": [
+        "signup_date",
+        "email"
+      ],
+      "indices": [
+        35,
+        120,
+        280,
+        410,
+        60,
+        199,
+        350
+      ],
+      "count": 7
+    },
+    "CATEGORY_NORMALIZATION": {
+      "column": "membership_tier",
+      "indices": [
+        15,
+        88,
+        140,
+        275,
+        430
+      ],
+      "count": 5
+    },
+    "STATISTICAL_OUTLIER": {
+      "column": "annual_orders",
+      "indices": [
+        95,
+        320
+      ],
+      "count": 2
+    },
+    "SEMANTIC_CONTRADICTION": {
+      "columns": [
+        "signup_date",
+        "churn_date",
+        "status"
+      ],
+      "indices": [
+        40,
+        175,
+        390,
+        105,
+        240,
+        365,
+        480
+      ],
+      "count": 7
+    },
+    "DUPLICATES": {
+      "count": 3,
+      "indices": [
+        500,
+        501,
+        502
+      ]
+    }
+  }
+}
