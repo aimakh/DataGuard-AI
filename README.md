@@ -1,10 +1,6 @@
 # 🛡️ DataGuard AI
 ### An Autonomous AI Agent for Data Quality and Intelligent Data Cleaning
 
-<p align="center">
-  <strong>Detect. Understand. Fix. Validate.</strong>
-</p>
-
 DataGuard AI is an autonomous data quality application designed to help users detect, understand, and resolve data quality issues with minimal technical effort. It analyzes datasets, identifies common data problems, explains findings in simple language, and proposes corrections that users can review before applying.
 
 Built with Python and Streamlit, the project combines structured agent workflows, data quality checks, remediation recommendations, and visual analytics to make data cleaning more transparent and accessible.
